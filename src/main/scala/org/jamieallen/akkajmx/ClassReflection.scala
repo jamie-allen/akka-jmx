@@ -1,11 +1,19 @@
 package org.jamieallen.akkajmx
 
 import scala.reflect.runtime.{ universe => ru }
+import akka.actor.Actor
 
-case class Person(name: String, var address: String)
+class CustomerActor extends Actor {
+  val name = "Jamie"
+  var address = "somewhere"
+
+  def receive = {
+    case _ => println("wat?")
+  }
+}
 
 object ClassReflection extends App {
-  val p = ru.typeOf[Person]
+  val p = ru.typeOf[CustomerActor]
   val fieldSymbols = p.declarations.filter(!_.isMethod).toList
   fieldSymbols.foreach(x => println(s"Field: ${x.name}"))
   val methodSymbols = p.declarations.filter(_.isMethod).toList
