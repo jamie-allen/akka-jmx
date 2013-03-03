@@ -2,7 +2,7 @@ scalaVersion := "2.10.0"
 
 name := "akka-jmx"
 
-scalacOptions ++= Seq("-unchecked", "-deprecation", "-optimize")
+scalacOptions ++= Seq("-unchecked", "-deprecation")
                   
 credentials += Credentials(Path.userHome / "atmos.credentials")
 
