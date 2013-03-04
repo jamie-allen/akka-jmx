@@ -1,9 +1,8 @@
 package org.jamieallen.akkajmx
 
 import java.lang.management.ManagementFactory
-import javax.management.ObjectName
-import scala.util.Try
 import javax.management.{ InstanceAlreadyExistsException, MBeanRegistrationException, NotCompliantMBeanException, RuntimeOperationsException, InstanceNotFoundException }
+import scala.util.Try
 
 object MBeanServerProxy {
   val mbeanServer = ManagementFactory.getPlatformMBeanServer
