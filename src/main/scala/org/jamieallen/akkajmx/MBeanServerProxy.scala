@@ -10,7 +10,7 @@ object MBeanServerProxy {
 
   // TODO: Figure out what to do when registration/unregistration fails
 
-  def register(actor: InstrumentedActor) = {
+  def register(actor: InstrumentedActor): Unit = {
     Try { mbeanServer.registerMBean(actor, actor.objectName) } recover {
       case iaee: InstanceAlreadyExistsException => ???
       case mbre: MBeanRegistrationException => ???
@@ -19,7 +19,7 @@ object MBeanServerProxy {
     }
   }
 
-  def unregister(actor: InstrumentedActor) = {
+  def unregister(actor: InstrumentedActor): Unit = {
     Try { mbeanServer.unregisterMBean(actor.objectName) } recover {
       case infe: InstanceNotFoundException => ???
       case mre: MBeanRegistrationException => ???
