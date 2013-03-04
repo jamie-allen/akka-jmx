@@ -14,11 +14,9 @@ class CustomerActor extends Actor {
 
 object ClassReflection extends App {
   val p = ru.typeOf[CustomerActor]
-  val packageName = p.typeSymbol.fullName split (".")
-  packageName foreach println
-  println(s"Package: ${p.typeSymbol.fullName}")
-  //  val packageNameString = packageName.mkString(".")
-  //  println(s"Package: $packageNameString")
+  val splitPackageName = p.typeSymbol.fullName split ('.')
+  val rebuiltPackageName = splitPackageName.init.mkString(".")
+  println(s"Package: $rebuiltPackageName")
   println(s"Type: ${p.typeSymbol.name}")
   val fieldSymbols = p.declarations.filter(!_.isMethod).toList
   fieldSymbols.foreach(x => println(s"Field: ${x.name}"))
