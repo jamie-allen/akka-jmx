@@ -3,8 +3,10 @@ scalaVersion := "2.10.0"
 name := "akka-jmx"
 
 scalacOptions ++= Seq("-unchecked", "-deprecation")
-                  
-credentials += Credentials(Path.userHome / "atmos.credentials")
+
+//scalaVersion := "2.11.0-SNAPSHOT"
+//scalaOrganization := "org.scala-lang.macro-paradise"
+//resolvers += Resolver.sonatypeRepo("snapshots")
 
 libraryDependencies ++= Seq(
           "com.typesafe.akka" %% "akka-actor" % "2.1.0",

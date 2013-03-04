@@ -2,6 +2,7 @@ package org.jamieallen.akkajmx
 
 import akka.actor.Actor
 import javax.management.ObjectName
+import language.experimental.macros
 
 trait InstrumentedActor extends Actor {
   def objectName: ObjectName = new ObjectName(s"${context.system}:name=${context.self.path}")
